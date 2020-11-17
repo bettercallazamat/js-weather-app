@@ -1,0 +1,1 @@
+(()=>{"use strict";(async a=>{let t;t=await fetch("https://api.openweathermap.org/data/2.5/weather?q=London&appid=abf028cd830f1fb143ca3f9b62071423",{mode:"cors"});const e=await t.json(),o={location:{country:e.sys.country,city:e.name},info:{main:e.weather[0].main,desc:e.weather[0].description},details:e.main};console.log(o)})()})();
