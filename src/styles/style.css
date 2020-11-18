@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap');
+
+/* 'Roboto', sans-serif */
+
+.container {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 20px;
+  min-height: 100vh;
+}
+
+.weather-today {
+  height: 100%;
+}
+
+#weather-info {
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 500px;
+  background-color: #242f40;
+  color: #f4f4f4;
+  margin: 0 auto;
+}
+
+.main-info-container {
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.main-info-container-right {
+  display: flex;
+  flex-direction: column;
+  line-height: 24px;
+}
+
+.weather-desc {
+  text-transform: capitalize;
+}
+
+.location-text {
+  font-size: 24px;
+}
+
+.temp-text {
+  font-size: 70px;
+}
+
+.weather-icon {
+  font-size: 40px;
+  margin: 0 12px;
+}
+
+#weather-comment {
+  height: 50%;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0 20%;
+  font-size: 70px;
+}
+
+form {
+  width: 40%;
+  max-width: 500px;
+  margin: 12px auto 36px auto;
+  height: 48px;
+  border: 3px solid #242f40;
+  border-radius: 24px;
+}
+
+#city-input {
+  height: 48px;
+  border: none;
+  background-color: transparent;
+  width: 80%;
+  padding-left: 18px;
+  font-size: 18px;
+}
+
+#city-submit {
+  background-color: #242f40;
+  color: #f4f4f4;
+  height: 85%;
+  border: none;
+  width: 18%;
+  border-radius: 22px;
+  font-size: 16px;
+}
+
+.temp-unit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin: 0 12px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
