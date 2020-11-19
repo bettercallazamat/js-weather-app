@@ -1,7 +1,6 @@
-import { kelvinToCelsius, kelvinToFahrenheit, weatherIcon, generateComment, refreshBtn, openModal } from './helper'
+import { kelvinToCelsius, kelvinToFahrenheit, weatherIcon, generateComment, refreshBtn, openModal, modal } from './helper'
 import './styles/reset.css'
 import './styles/style.css'
-
 
 const API_KEY = "abf028cd830f1fb143ca3f9b62071423"
 const form = document.getElementById('form')
@@ -10,7 +9,6 @@ const citySubmit = document.getElementById('city-submit');
 const weatherCommentContainer = document.getElementById('weather-comment')
 const weatherInfo = document.getElementById('weather-info')
 const checkbox = document.getElementById('checkbox')
-const modal = document.querySelector('.modal');
 
 let celsius = true;
 checkbox.checked = celsius;

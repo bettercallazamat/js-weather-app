@@ -1,5 +1,7 @@
 import comments from './comments';
 
+const modal = document.querySelector('.modal');
+
 const kelvinToCelsius = (kelvin) => Math.round(kelvin - 273.15);
 
 const kelvinToFahrenheit = (kelvin) => Math.round(((kelvin - 273.15) * 9) / 5 + 32);
@@ -26,9 +28,9 @@ const weatherIcon = (info) => {
 }
 
 const generateComment = (temp, celsius) => {
-  if (celsius === true && temp > 20) {
+  if (celsius === true && temp > 300) {
     return comments.hot[Math.floor(Math.random() * comments.hot.length)];
-  } else if (celsius === true && temp <= 20 && temp > 14) {
+  } else if (celsius === true && temp <= 300 && temp > 285) {
     return comments.normal[Math.floor(Math.random() * comments.normal.length)];
   } else {
     return comments.cold[Math.floor(Math.random() * comments.cold.length)];
@@ -75,5 +77,6 @@ export {
   weatherIcon,
   generateComment,
   refreshBtn,
-  openModal
+  openModal,
+  modal
 };

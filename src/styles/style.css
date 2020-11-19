@@ -108,6 +108,8 @@ form {
   font-size: 26px;
 }
 
+/* SWITCH UNIT CSS */
+
 .switch {
   position: relative;
   display: inline-block;
@@ -185,7 +187,8 @@ input:checked + .slider:before {
 
 .modal-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
@@ -194,6 +197,12 @@ input:checked + .slider:before {
 }
 
 .exit-modal {
-  align-self: flex-end;
   margin-top: 9%;
+  background-color: #242f40;
+  color: #f4f4f4;
+  height: 28px;
+  width: 60px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
 }
