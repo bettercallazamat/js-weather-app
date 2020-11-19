@@ -1,8 +1,6 @@
 import { kelvinToCelsius, kelvinToFahrenheit, weatherIcon, generateComment, refreshBtn } from './helper'
 import './styles/reset.css'
 import './styles/style.css'
-// import comments from './comments';
-// import 'https://use.fontawesome.com/releases/v5.7.0/css/all.css'
 
 const API_KEY = "abf028cd830f1fb143ca3f9b62071423"
 const form = document.getElementById('form')
@@ -15,14 +13,12 @@ let celsius = true;
 checkbox.checked = celsius;
 weatherInfo.style.display = 'none';
 
-let lastCity;
 let lastWeatherData;
 
 const getWeatherData = async (city) => {
   try {
     let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`, { mode: 'cors' });
     const weatherData = await response.json();
-
     const location = {
       country: weatherData.sys.country,
       city: weatherData.name
@@ -32,15 +28,7 @@ const getWeatherData = async (city) => {
       desc: weatherData.weather[0].description
     }
     const details = weatherData.main;
-    // details.temp = celsius ? kelvinToCelsius(details.temp) : kelvinToFahrenheit(details.temp)
-    // details.feels_like = celsius ? kelvinToCelsius(details.feels_like) : kelvinToFahrenheit(details.feels_like)
-
     const result = { location, info, details }
-
-    console.log(weatherData);
-    // console.log(result);
-
-    // lastCity = city;
     lastWeatherData = result;
     return result;
   } catch(error) {
@@ -73,11 +61,10 @@ const render = (data) => {
   comment.textContent = generateComment(data.details.temp, celsius);
   locationInfo.textContent = `Weather in ${data.location.city}, ${data.location.country}`
   lastUpdatedTime.textContent = 'Last updated XX:XX'
+  lastUpdatedTime.textContent = `Last updated at ${new Date().toLocaleTimeString()}`
   desc.textContent = data.info.desc;
-  // temp.textContent = data.details.temp;
-  temp.textContent = celsius ? kelvinToCelsius(data.details.temp) : kelvinToFahrenheit(data.details.temp)
-  // feel_temp.textContent = `Feels like ${data.details.feels_like}`;
-  feel_temp.textContent = `Feels like ${ celsius ? kelvinToCelsius(data.details.feels_like) : kelvinToFahrenheit(data.details.feels_like) }`;
+  temp.textContent = (celsius ? kelvinToCelsius(data.details.temp) : kelvinToFahrenheit(data.details.temp)) + '°'
+  feel_temp.textContent = `Feels like ${celsius ? kelvinToCelsius(data.details.feels_like) : kelvinToFahrenheit(data.details.feels_like) }°`;
 
   // CLASSES
   mainInfoContainer.classList.add('main-info-container')
@@ -100,7 +87,6 @@ const dataProcessing = async(e, lastCity = undefined) => {
   e.preventDefault();
   const city = cityInput.value;
   form.reset()
-  // lastCity = city;
   const data = await getWeatherData(city);
   render(data);
 }
@@ -109,26 +95,7 @@ citySubmit.addEventListener('click', dataProcessing);
 
 checkbox.addEventListener('change', (e) => {
   celsius = checkbox.checked;
-  render(lastWeatherData);
-});
-
-const fakedata = {
-  location: {
-    city: "London",
-    country: "GB"
-  },
-  info: {
-    desc: "overcast clouds",
-    main: "Clouds"
-  },
-  details: {
-    feels_like: 275,
-    humidity: 87,
-    pressure: 1012,
-    temp: 282,
-    temp_max: 288.15,
-    temp_min: 284.26
+  if (lastWeatherData !== undefined) {
+    render(lastWeatherData);
   }
-}
-
-render(fakedata);
+});

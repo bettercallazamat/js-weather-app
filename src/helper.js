@@ -27,11 +27,11 @@ const weatherIcon = (info) => {
 
 const generateComment = (temp, celsius) => {
   if (celsius === true && temp > 20) {
-    return comments.hot[Math.round(Math.random() * comments.hot.length)];
+    return comments.hot[Math.floor(Math.random() * comments.hot.length)];
   } else if (celsius === true && temp <= 20 && temp > 14) {
-    return comments.normal[Math.round(Math.random() * comments.normal.length)];
+    return comments.normal[Math.floor(Math.random() * comments.normal.length)];
   } else {
-    return comments.cold[Math.round(Math.random() * comments.cold.length)];
+    return comments.cold[Math.floor(Math.random() * comments.cold.length)];
   }
 }
 
