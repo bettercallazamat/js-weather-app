@@ -1,6 +1,7 @@
-import { kelvinToCelsius, kelvinToFahrenheit, weatherIcon, generateComment, refreshBtn } from './helper'
+import { kelvinToCelsius, kelvinToFahrenheit, weatherIcon, generateComment, refreshBtn, openModal } from './helper'
 import './styles/reset.css'
 import './styles/style.css'
+
 
 const API_KEY = "abf028cd830f1fb143ca3f9b62071423"
 const form = document.getElementById('form')
@@ -9,6 +10,8 @@ const citySubmit = document.getElementById('city-submit');
 const weatherCommentContainer = document.getElementById('weather-comment')
 const weatherInfo = document.getElementById('weather-info')
 const checkbox = document.getElementById('checkbox')
+const modal = document.querySelector('.modal');
+
 let celsius = true;
 checkbox.checked = celsius;
 weatherInfo.style.display = 'none';
@@ -19,6 +22,7 @@ const getWeatherData = async (city) => {
   try {
     let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`, { mode: 'cors' });
     const weatherData = await response.json();
+
     const location = {
       country: weatherData.sys.country,
       city: weatherData.name
@@ -88,7 +92,11 @@ const dataProcessing = async(e, lastCity = undefined) => {
   const city = cityInput.value;
   form.reset()
   const data = await getWeatherData(city);
-  render(data);
+  if (data.error) {
+    openModal(modal, "Please provide correct city name")
+  } else {
+    render(data);
+  }
 }
 
 citySubmit.addEventListener('click', dataProcessing);
