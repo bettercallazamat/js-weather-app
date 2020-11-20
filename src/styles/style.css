@@ -103,6 +103,7 @@ form {
 
 #city-input:focus {
   outline: none;
+  background-color: transparent;
 }
 
 #city-submit {
