@@ -7,7 +7,7 @@ const comments = {
     'I am sick of this cold weather',
     "It's time to miss hating summer heat",
     "My favorite thing about cold weather? When it's over",
-    'The only thing II hate more than cold weather is people who say they love cold weather',
+    'The only thing I hate more than cold weather is people who say they love cold weather',
     "Stay home. It's cold outside",
   ],
 
