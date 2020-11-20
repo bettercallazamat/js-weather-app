@@ -16,7 +16,7 @@
 
 ## Live Demo
 
-[Live Demo Link](#)
+A live demo is not available due to privacy of API key and this project is run on client-side.
 
 ## Getting Started
 
