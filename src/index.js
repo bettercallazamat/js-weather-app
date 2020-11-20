@@ -1,7 +1,7 @@
 import {
-  kelvinToCelsius, kelvinToFahrenheit, weatherIcon, generateComment, refreshBtn, openModal, modal,
+  kelvinToCelsius, kelvinToFahrenheit, weatherIcon, generateComment, refreshBtn, openModal,
 } from './helper';
-import config from './config'
+import config from './config';
 import './styles/reset.css';
 import './styles/style.css';
 
@@ -22,7 +22,7 @@ const getWeatherData = async (city) => {
   try {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${config.API_KEY}`,
-      { mode: "cors" }
+      { mode: 'cors' },
     );
     const weatherData = await response.json();
 

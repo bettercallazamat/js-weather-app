@@ -1,9 +1,9 @@
 import comments from './comments';
 
 const modal = document.querySelector('.modal');
-const exitModal = document.querySelector(".exit-modal");
-const modalContent = document.querySelector(".modal-content");
-const modalMessage = document.createElement("p");
+const exitModal = document.querySelector('.exit-modal');
+const modalContent = document.querySelector('.modal-content');
+const modalMessage = document.createElement('p');
 
 const kelvinToCelsius = (kelvin) => Math.round(kelvin - 273.15);
 

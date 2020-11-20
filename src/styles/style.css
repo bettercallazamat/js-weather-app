@@ -4,6 +4,7 @@
   font-family: 'Baloo Chettan 2', cursive;
   font-size: 20px;
   min-height: 100vh;
+  padding: 12px;
 }
 
 .weather-today {
@@ -50,14 +51,27 @@
 }
 
 #weather-comment {
-  height: 50%;
-  min-height: auto;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   margin: 0 20%;
   font-size: 70px;
+}
+
+@media only screen and (max-width: 768px) {
+  #weather-comment {
+    font-size: 60px;
+    margin: 0 0 24px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #weather-comment {
+    height: auto;
+    font-size: 50px;
+  }
 }
 
 .refresh-btn {
@@ -67,8 +81,11 @@
 }
 
 form {
+  display: flex;
+  align-items: center;
   width: 40%;
   max-width: 500px;
+  min-width: 300px;
   margin: 12px auto 36px auto;
   height: 48px;
   border: 3px solid #242f40;
@@ -77,9 +94,9 @@ form {
 
 #city-input {
   height: 48px;
+  width: 100%;
   border: none;
   background-color: transparent;
-  width: 80%;
   padding-left: 18px;
   font-size: 18px;
 }
@@ -89,13 +106,14 @@ form {
 }
 
 #city-submit {
-  background-color: #242f40;
-  color: #f4f4f4;
-  height: 85%;
-  border: none;
-  width: 18%;
-  border-radius: 22px;
   font-size: 16px;
+  height: 85%;
+  width: 70px;
+  margin-right: 5px;
+  color: #f4f4f4;
+  background-color: #242f40;
+  border: none;
+  border-radius: 22px;
 }
 
 .temp-unit {

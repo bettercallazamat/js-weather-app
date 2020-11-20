@@ -8,12 +8,10 @@ const comments = {
     "It's time to miss hating summer heat",
     "My favorite thing about cold weather? When it's over",
     'The only thing II hate more than cold weather is people who say they love cold weather',
-    'Stay home. Its cold outside',
+    "Stay home. It's cold outside",
   ],
 
-  normal: [
-    'Temprature outside is okay, you can cry about weather tomorrow',
-  ],
+  normal: ['The temperature outside is okay: you can cry about the weather tomorrow.'],
 
   hot: [
     "It's blooooooooody hot outside.",
