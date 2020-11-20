@@ -1,7 +1,7 @@
 import {
   kelvinToCelsius, kelvinToFahrenheit, weatherIcon, generateComment, refreshBtn, openModal,
 } from './helper';
-import config from './config';
+import config from './config'; // eslint-disable-line import/no-unresolved, import/extensions
 import './styles/reset.css';
 import './styles/style.css';
 
