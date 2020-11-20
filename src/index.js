@@ -1,10 +1,10 @@
 import {
   kelvinToCelsius, kelvinToFahrenheit, weatherIcon, generateComment, refreshBtn, openModal, modal,
 } from './helper';
+import config from './config'
 import './styles/reset.css';
 import './styles/style.css';
 
-const API_KEY = 'abf028cd830f1fb143ca3f9b62071423';
 const form = document.getElementById('form');
 const cityInput = document.getElementById('city-input');
 const citySubmit = document.getElementById('city-submit');
@@ -20,7 +20,10 @@ let lastWeatherData;
 
 const getWeatherData = async (city) => {
   try {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`, { mode: 'cors' });
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${config.API_KEY}`,
+      { mode: "cors" }
+    );
     const weatherData = await response.json();
 
     const location = {
@@ -93,7 +96,7 @@ const dataProcessing = async (e) => {
   form.reset();
   const data = await getWeatherData(city);
   if (data.error) {
-    openModal(modal, 'Please provide correct city name');
+    openModal('Please provide correct city name');
   } else {
     render(data);
   }

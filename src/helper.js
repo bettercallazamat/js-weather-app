@@ -1,6 +1,9 @@
 import comments from './comments';
 
 const modal = document.querySelector('.modal');
+const exitModal = document.querySelector(".exit-modal");
+const modalContent = document.querySelector(".modal-content");
+const modalMessage = document.createElement("p");
 
 const kelvinToCelsius = (kelvin) => Math.round(kelvin - 273.15);
 
@@ -49,11 +52,7 @@ const refreshBtn = (data, render) => {
   return refresh;
 };
 
-const openModal = (modal, content) => {
-  const exitModal = document.querySelector('.exit-modal');
-  const modalContent = document.querySelector('.modal-content');
-  const modalMessage = document.createElement('p');
-
+const openModal = (content) => {
   modal.style.display = 'block';
   modalMessage.textContent = content;
   modalContent.append(modalMessage, exitModal);
@@ -67,6 +66,7 @@ document.addEventListener('keydown', (e) => {
   const { keyCode } = e;
   if (keyCode === 27) {
     modal.style.display = 'none';
+    modalContent.removeChild(modalContent.firstChild);
   }
 });
 
